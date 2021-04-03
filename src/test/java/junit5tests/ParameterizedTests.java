@@ -1,8 +1,15 @@
 package junit5tests;
 
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ParameterizedTests {
 
     @ParameterizedTest(name = "Run: {index} - value: {arguments} ")
@@ -58,5 +65,26 @@ public class ParameterizedTests {
             unity, String provider){
         System.out.println("name = " + name + ", price = " + price + ", qty = " + qty + ", unity = " + unity + ", provider = " + provider);
     }
+
+    @ParameterizedTest
+    @MethodSource(value = "sourceString")
+    void methodSource_String(String param1){
+        System.out.println("param1 = " + param1);
+
+    }
+
+    @ParameterizedTest
+    @MethodSource(value = "junit5tests.ParamProvider#sourceList_StringDouble")
+    void methodSource_StringDouble(String param1, double param2){
+        System.out.println("param1 = " + param1 + ", param2 = " + param2);
+
+    }
+
+
+    List<String> sourceString() {
+        return Arrays.asList("tomate", "cenoura","banana");
+    }
+
+
 
 }
