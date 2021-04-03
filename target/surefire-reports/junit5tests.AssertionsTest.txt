@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: junit5tests.AssertionsTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! - in junit5tests.AssertionsTest
+assertEquals  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The string values were not equals ==> expected: <firstString> but was: <secondString>
+	at junit5tests.AssertionsTest.assertEquals(AssertionsTest.java:21)
+
+assertForListTest  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: a collection containing "test"
+     but: mismatches were: [was "firstString", was "secondString", was "thirdString"]
+	at junit5tests.AssertionsTest.assertForListTest(AssertionsTest.java:84)
+
+assertAllTest  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.MultipleFailuresError: 
+Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: expected: <2> but was: <3>
+	org.opentest4j.AssertionFailedError: Boolean not true ==> expected: <true> but was: <false>
+	at junit5tests.AssertionsTest.assertAllTest(AssertionsTest.java:61)
+
+assertTrue  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Boolean not true ==> expected: <true> but was: <false>
+	at junit5tests.AssertionsTest.assertTrue(AssertionsTest.java:50)
+
